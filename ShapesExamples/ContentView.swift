@@ -7,15 +7,28 @@
 
 import SwiftUI
 
+struct Diagonal: Shape {
+    func path(in rect: CGRect) -> Path {
+        
+        var path = Path()
+        
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        
+        //send back (return) teh path that discribs the shape
+        return path
+        
+    }
+    
+    
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+
+          Diagonal()
+            .stroke()
+        
     }
 }
 
